@@ -3,485 +3,372 @@ package linked_list;
 import java.util.Scanner;
 
 public class _11_Linked_list_Deletion_Pro {
+	static Node head,temp; 
+	//creation 
+	public static void creationAndInsertion() {
 
-	 static Node head,temp; 
+		Scanner s = new Scanner(System.in); 
+		boolean flag = true; 
+		while (flag) { 
+			Node n = new Node(); 
+			System.out.println("Enter the data"); 
+			n.data = s.nextInt(); 
+			if(head == null)
+			{
+				head = n; 
+				temp = n; 
+				System.out.println(temp.addofnextNode); 
+			} 
+			else { 
+				// System.out.println(temp.adnextnode); 
+				temp.addofnextNode = n; 
+				System.out.println(temp.addofnextNode); 
+				temp = n; 
+			} 
+			System.out.println("one node created successfully"); 
+			System.out.println("Do you want to create another node:\n1.Yes\n2.No"); 
+			int choice = s.nextInt(); 
+			if (choice == 1) { 
+				flag = true; 
+			} else {
+				break; 
+			} 
+		} 
+	} 
+	//display 
+	public static void display() { 
+		Node temp1; 
+		if(head==null) 
+		{ 
+			System.out.println("create the node first"); 
+		} 
+		else 
+		{ 
+			temp1 = head; 
+			System.out.println("elements present in the list are:"); 
+			while (temp1 != null) { 
+				System.out.println(temp1.data); 
+				temp1 = temp1.addofnextNode; 
+			} 
+		} 
+	} 
+	//count num of nodes 
+	public static int countNumNodes() 
+	{ 
+		int count=0; 
+		if(head==null) 
+		{ 
+			System.out.println("create the node first"); 
+		} 
+		else 
+		{ 
+			Node temp; 
+			temp=head; 
+			while(temp!=null) 
+			{
+				count++; 
+				temp=temp.addofnextNode; 
+			} 
+			System.out.println("Number of nodes in the list are: "+count); 
+		} 
+		return count; 
+	} 
+	//insertion at beg 
+	public static void insertionAtBeg() 
+	{ 
+		Node n = new Node(); 
+		System.out.println("enter the data to insert at beg"); 
+		n.data=s.nextInt(); 
+		n.addofnextNode
+		head=n; 
+		System.out.println("Node inserted at beg successfully"); 
+	} 
 
-	
-	 //creation 
+	//insertion at end 
 
-	 public static void creationAndInsertion() { 
+	public static void insertionAtEnd() 
 
-		 Scanner s = new Scanner(System.in); 
+	{ 
+
+		Node temp; 
+
+		temp=head; 
+
+		while(temp.addofnextNode!=null) 
+
+		{ 
+
+			temp=temp.addofnextNode; 
+
+		} 
+
+		Node n = new Node(); 
+
+		System.out.println("enter the data to insert at last"); 
+
+		n.data=s.nextInt(); 
+
+		temp.addofnextNode=n; 
+
+		System.out.println("Node inserted at end successfully"); 
 
 
-	boolean flag = true; 
-
-	 while (flag) { 
-
-	 Node n = new Node(); 
-
-	 System.out.println("Enter the data"); 
-
-	 n.data = s.nextInt(); 
-
-	 if (head == null) { 
-
-	 head = n; 
-
-	 temp = n; 
-
-	 System.out.println(temp.addofnextNode); 
-
-	 } else { 
-
-	 // System.out.println(temp.adnextnode); 
-
-	 temp.addofnextNode = n; 
-
-	 System.out.println(temp.addofnextNode); 
-
-	 temp = n; 
-
-	 } 
-
-	 System.out.println("one node created successfully"); 
-
-	 System.out.println("Do you want to create another node:\n1.Yes\n2.No"); 
-
-	 int choice = s.nextInt(); 
-
-	 if (choice == 1) { 
-
-	 flag = true; 
-
-	 } else { 
-
-	 break; 
-
-	 } 
-
-	 } 
-
-	 } 
-
-	 //display 
-
-	 public static void display() { 
-
-	 Node temp1; 
-
-	 if(head==null) 
-
-	 { 
-
-	 System.out.println("create the node first"); 
-
-	 } 
-
-	 else 
-
-	 { 
-
-	 temp1 = head; 
-
-	 System.out.println("elements present in the list are:"); 
-
-	 while (temp1 != null) { 
-
-	 System.out.println(temp1.data); 
-
-	 temp1 = temp1.adnextnode; 
-
-	 } 
-
-	  
 
 	} 
 
-	 } 
+	//insertion at position 
 
-	 //count num of nodes 
+	public static void insertionAtPos() 
 
-	 public static int countNumNodes() 
+	{ 
 
-	 { 
+		if(head==null) 
 
-	 int count=0; 
+		{ 
 
-	 if(head==null) 
+			System.out.println("create the node first"); 
 
-	 { 
+		} 
 
-	 System.out.println("create the node first"); 
+		else 
 
-	 } 
+		{ 
 
-	 else 
+			int pos=0; 
 
-	 { 
+			System.out.println("Enter position"); 
 
-	 Node temp; 
+			pos = s.nextInt(); 
 
-	 temp=head; 
+			int count = countNumNodes(); 
 
-	 while(temp!=null) 
+			if(pos>=1 && pos<=count+1) 
 
-	 { 
+			{ 
 
-	 count++; 
+				if(pos==1) 
 
-	 temp=temp.adnextnode; 
+				{ 
 
-	 } 
+					insertionAtBeg(); 
 
-	 System.out.println("Number of nodes in the list are: "+count); 
+				} 
 
-	  
+				else if(pos==count+1) 
 
-	} 
+				{ 
 
-	 return count; 
+					insertionAtEnd(); 
 
-	  
+				} 
 
-	} 
+				else 
 
-	 //insertion at beg 
+				{ 
 
-	 public static void insertionAtBeg() 
+					int i=1; 
 
-	 { 
+					Node n = new Node(); 
 
-	 Node n = new Node(); 
+					System.out.println("Enter the daat to be inserted at pos"); 
 
-	 System.out.println("enter the data to insert at beg"); 
+					n.data=s.nextInt(); 
 
-	 n.data=s.nextInt(); 
+					Node temp; 
 
-	 n.addofnextNode
-	 head=n; 
+					temp=head; 
 
-	 System.out.println("Node inserted at beg successfully"); 
+					while(i<pos-1) 
 
-	 } 
+					{ 
 
-	 //insertion at end 
+						temp=temp.addofnextNode; 
 
-	 public static void insertionAtEnd() 
+						i++; 
 
-	 { 
+					} 
 
-	 Node temp; 
+					n.addofnextNode=temp.addofnextNode; 
 
-	 temp=head; 
+					temp.addofnextNode=n; 
 
-	 while(temp.adnextnode!=null) 
+					System.out.println("data inserted at pos successfully"); 
 
-	 { 
 
-	 temp=temp.adnextnode; 
 
-	 } 
+				} 
 
-	 Node n = new Node(); 
+			} 
 
-	 System.out.println("enter the data to insert at last"); 
+			else 
 
-	 n.data=s.nextInt(); 
+			{ 
 
-	 temp.adnextnode=n; 
+				System.out.println("invalid position"); 
 
-	 System.out.println("Node inserted at end successfully"); 
+			} 
 
-	  
+		} 
 
 	} 
 
-	 //insertion at position 
 
-	 public static void insertionAtPos() 
-
-	 { 
-
-	 if(head==null) 
-
-	 { 
-
-	 System.out.println("create the node first"); 
-
-	 } 
-
-	 else 
-
-	 { 
-
-	 int pos=0; 
-
-	 System.out.println("Enter position"); 
-
-	 pos = s.nextInt(); 
-
-	 int count = countNumNodes(); 
-
-	 if(pos>=1 && pos<=count+1) 
-
-	 { 
-
-	 if(pos==1) 
-
-	 { 
-
-	 insertionAtBeg(); 
-
-	 } 
-
-	 else if(pos==count+1) 
-
-	 { 
-
-	 insertionAtEnd(); 
-
-	 } 
-
-	 else 
-
-	 { 
-
-	 int i=1; 
-
-	 Node n = new Node(); 
-
-	 System.out.println("Enter the daat to be inserted at pos"); 
-
-	 n.data=s.nextInt(); 
-
-	 Node temp; 
-
-	 temp=head; 
-
-	 while(i<pos-1) 
-
-	 { 
-
-	 temp=temp.adnextnode; 
-
-	 i++; 
-
-	 } 
-
-	 n.adnextnode=temp.adnextnode; 
-
-	 temp.adnextnode=n; 
-
-	 System.out.println("data inserted at pos successfully"); 
-
-	  
-
-	} 
-
-	 } 
-
-	 else 
-
-	 { 
-
-	 System.out.println("invalid position"); 
-
-	 } 
-
-	 } 
-
-	 } 
-
-	  
 
 	public static void deletionAtBeg() 
 
-	 { 
+	{ 
 
-	 Node temp; 
+		Node temp; 
 
-	 temp=head; 
+		temp=head; 
 
-	 head=head.adnextnode; 
+		head=head.addofnextNode; 
 
-	 temp.adnextnode=null; 
+		temp.addofnextNode=null; 
 
-	 System.out.println("node deleted at beg successfully"); 
+		System.out.println("node deleted at beg successfully"); 
 
-	 } 
+	} 
 
-	 public static void deletionAtEnd() 
+	public static void deletionAtEnd() 
 
-	 { 
+	{ 
 
-	 Node temp,prevnode=null; 
+		Node temp,prevnode=null; 
 
-	 temp=head; 
+		temp=head; 
 
-	 while(temp.adnextnode!=null) 
+		while(temp.addofnextNode!=null) 
 
-	 { 
+		{ 
 
-	 prevnode=temp; 
+			prevnode=temp; 
 
-	 temp=temp.adnextnode; 
+			temp=temp.addofnextNode;
+		} 
 
-	 } 
+		prevnode.addofnextNode=null; 
 
-	 prevnode.adnextnode=null; 
+		System.out.println("node deleted at end successfully"); 
 
-	 System.out.println("node deleted at end successfully"); 
+	} 
 
-	 } 
 
-	  
 
 	public static void deletionAtPos() 
 
-	 { 
+	{ 
 
-	 if(head==null) 
+		if(head==null) 
 
-	 { 
+		{ 
 
-	 System.out.println("create the node first"); 
+			System.out.println("create the node first"); 
 
-	 } 
+		} 
 
-	 else 
+		else 
 
-	 { 
+		{ 
 
-	 System.out.println("enter position to delete the data"); 
+			System.out.println("enter position to delete the data"); 
 
-	 int pos=s.nextInt(); 
+			int pos=s.nextInt(); 
 
-	 System.out.println("````````````````````````````````````"); 
+			System.out.println("````````````````````````````````````"); 
 
-	 int count=countNumNodes(); 
+			int count=countNumNodes(); 
 
-	 if(pos>0 && pos<=count) 
+			if(pos>0 && pos<=count) 
 
-	 { 
+			{ 
 
-	 if(pos==1) 
+				if(pos==1) 
 
-	 { 
+				{ 
 
-	 deletionAtBeg(); 
+					deletionAtBeg(); 
 
-	 } 
+				} 
 
-	 else if(pos==count) 
+				else if(pos==count) 
 
-	 { 
+				{ 
 
-	 deletionAtEnd(); 
+					deletionAtEnd(); 
 
-	 } 
+				} 
 
-	 else 
+				else 
 
-	 { 
+				{ 
 
-	 Node temp,prevnode=null; 
+					Node temp,prevnode=null; 
 
-	 temp=head; 
+					temp=head; 
 
-	 int i=1; 
+					int i=1; 
 
-	 while(i<pos) 
+					while(i<pos) 
 
-	 { 
+					{ 
 
-	 prevnode=temp; 
+						prevnode=temp; 
 
-	 temp=temp.adnextnode; 
+						temp=temp.addofnextNode; 
 
-	 i++; 
+						i++; 
 
-	 } 
+					} 
 
-	 prevnode.adnextnode=temp.adnextnode; 
+					prevnode.addofnextNode=temp.addofnextNode; 
 
-	 temp.adnextnode=null; 
+					temp.adnextnode=null; 
 
-	 System.out.println("node deleted at position successfully"); 
+					System.out.println("node deleted at position successfully"); 
 
-	 } 
+				} 
 
-	 } 
+			} 
 
-	 else 
+			else 
 
-	 { 
+			{ 
 
-	 System.out.println("invalid position"); 
+				System.out.println("invalid position"); 
 
-	 } 
+			} 
 
-	 } 
+		} 
 
-	 } 
-
-	  
-
+	}
 	public static void main(String[] args) { 
-
-	 boolean flag=true; 
-
-	 while(true) 
-
-	 { 
-
-	 System.out.println("```````````````````````````````````````````"); 
-
-	 System.out.println("1.creation and insertion\n2.display\n3.countNumNodes\n4.insertionAtPos\n5.DeletionAtPos\n6.exit"); 
-
-	 System.out.println("```````````````````````````````````````````"); 
-
-	 System.out.println("enter your choice:"); 
-
-	 System.out.println("```````````````````````````````````````````"); 
-
-	 int ch = s.nextInt(); 
-
-	 switch (ch) { 
-
-	 case 1: 
-
-	 creationAndInsertion(); 
-
-	 break; 
-
-	 case 2: 
-
-	 display(); 
-
-	 break; 
-
-	 case 3:countNumNodes(); 
-
-	 break; 
-
-	 case 4:insertionAtPos(); 
-
-	 break; 
-
-	 case 5:deletionAtPos(); 
-
-	 break; 
-
-	 case 6:flag=false; 
-
-	 break; 
-
-	 } 
-
-	 } 
-
-	 } 
-
-	 } 
-}
+		boolean flag=true; 
+		while(true)
+		{ 
+			System.out.println("```````````````````````````````````````````"); 
+			System.out.println("1.creation and insertion\n2.display\n3.countNumNodes\n4.insertionAtPos\n5.DeletionAtPos\n6.exit"); 
+			System.out.println("```````````````````````````````````````````"); 
+			System.out.println("enter your choice:"); 
+			System.out.println("```````````````````````````````````````````"); 
+			int ch = s.nextInt(); 
+			switch (ch) { 
+			case 1: 
+				creationAndInsertion(); 
+				break; 
+			case 2:
+				display(); 
+				break;
+			case 3:countNumNodes(); 
+			break; 
+			case 4:insertionAtPos(); 
+			break; 
+			case 5:deletionAtPos(); 
+			break; 
+			case 6:flag=false; 
+			break; 
+			} 
+		} 
+	} 
+} 
+S
