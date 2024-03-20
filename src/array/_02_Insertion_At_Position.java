@@ -23,12 +23,12 @@ public class _02_Insertion_At_Position {
 		System.out.println("enter position to insert in an array");
 		int pos=s.nextInt();
 
-		//step-6
+		//step-6->>chk the condition if position is >0 and <size+1
 		if(pos>=0 && pos<=size+1)
 		{
 			System.out.println("enter the element to insert in the array");
 			int ele=s.nextInt();
-			System.out.println("elements after inseting the data is: ");
+			System.out.println("elements after inserting the data is: ");
 			System.out.println("");
 			for(int i=size-1;i>=pos-1;i--)
 			{
@@ -36,6 +36,7 @@ public class _02_Insertion_At_Position {
 			}
 			a[pos-1]=ele;
 			size++;
+			
 			for(int i=0;i<size;i++)
 			{
 				System.out.println(a[i]);

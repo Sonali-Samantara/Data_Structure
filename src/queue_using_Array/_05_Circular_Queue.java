@@ -7,7 +7,7 @@ public class _05_Circular_Queue {
 	static int front=-1,rear=-1;
 	static int size;
 	static int circularqueue[];
-	
+
 	public static void enqueue(int data) {
 
 		if(front==-1 && rear==-1)
@@ -88,9 +88,9 @@ public class _05_Circular_Queue {
 
 	public static void isFull() 
 	{
-		if (rear == size - 1) 
+		if ((rear+1)%size==front) 
 		{ 
-			System.out.println("queue using array is full"); 
+			System.out.println("queue is full"); 
 		} 
 		else 
 		{ 
@@ -104,7 +104,7 @@ public class _05_Circular_Queue {
 		while(flag)
 		{
 			System.out.println("````````````````````````````````"); 
-			System.out.println("1.creation_Of_Queue_using_Array.\n2.insert_the data into queue of array(enque())\n3.delete data from the Queue(deque())\n4.display_topmost_data\n5.isEmpty()\n6.isFull()\n7.exit"); 
+			System.out.println("1.Creation_And_Insertion\n2.Display\n3.Deletion\n4.top most element\n5.isEmpty\n6.is Full\n7.exit"); 
 			System.out.println("``````````````````````````````````"); 
 			System.out.println("enter your choice"); 
 			System.out.println("````````````````````````````````````"); 
@@ -115,6 +115,7 @@ public class _05_Circular_Queue {
 			case 1: if(circularqueue==null)
 			{
 				System.out.println("enter the size");
+				size=s.nextInt();
 				circularqueue=new int[size];
 			}
 			else
@@ -122,10 +123,10 @@ public class _05_Circular_Queue {
 				boolean repeat=true;
 				while(repeat)
 				{
-					System.out.println();
+					System.out.println("enter the data to insert into the queue");
 					int data=s.nextInt();
-					enqueue[data];
-					System.out.println("");
+					enqueue(data);
+					System.out.println("do you want to insert another data:\n1.yes\n2.no");
 					int ch=s.nextInt();
 					if(ch==1)
 					{
@@ -147,19 +148,63 @@ public class _05_Circular_Queue {
 				display();
 			}
 			break;
-			case 3:if(circularqueue==null)
-			{
-				System.out.println("create the queue first");
+			case 3:if (circularqueue == null) { 
 
-			}
-			else
-			{
+				System.out.println("create the queue using array first"); 
 
-			}
+			} else { 
+				boolean rept = true; 
+				while (rept) { 
+					dequeue(); 
+					System.out.println("do you want to delete another data: \n1.yes\n2.no"); 
+					int ch = s.nextInt(); 
+					if (ch == 1) { 
+						rept = true; 
+					} 
+					else 
+					{ 
+						rept = false; 
+					} 
+				} 
+			} 
+			break; 
+			case 4: 
+				if (circularqueue == null) { 
+					System.out.println("create the queue using array first"); 
+				} 
+				else 
+				{ 
+					peek(); 
+				} 
+				break; 
+			case 5: 
+				if (circularqueue == null) { 
+					System.out.println("create the queue using array first"); 
+				} 
+				else
+				{ 
+					isEmpty(); 
+				} 
+				break; 
+			case 6: 
+				if (circularqueue == null) { 
+					System.out.println("create the queue using array first"); 
+				} 
+				else 
+				{ 
+					isFull(); 
+				} 
+				break; 
+			case 7: 
+				System.out.println("Thankyou!!!!!!!!!1"); 
+				flag = false; 
+				break; 
+			default: 
+				System.out.println("please enter proper choice"); 
+			} 
 
-			}
+		} 
 
-		}
-	}
+	} 
 
-}
+} 
