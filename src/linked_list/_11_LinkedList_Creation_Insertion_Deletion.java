@@ -1,25 +1,23 @@
 package linked_list;
 
-import java.util.Scanner;
+import java.util.Scanner; 
 
-public class _11_Linked_list_Deletion_Pro {
+public class _11_LinkedList_Creation_Insertion_Deletion { 
 	static Node head,temp; 
+	static Scanner s = new Scanner(System.in); 
 	//creation 
-	public static void creationAndInsertion() {
-
-		Scanner s = new Scanner(System.in); 
-		boolean flag = true; 
-		while (flag) { 
+	public static void creationAndInsertion() { 	  
+		boolean flag = true; 	
+		while (flag) 
+		{ 
 			Node n = new Node(); 
 			System.out.println("Enter the data"); 
 			n.data = s.nextInt(); 
-			if(head == null)
-			{
+			if (head == null) { 
 				head = n; 
 				temp = n; 
 				System.out.println(temp.addofnextNode); 
-			} 
-			else { 
+			} else { 
 				// System.out.println(temp.adnextnode); 
 				temp.addofnextNode = n; 
 				System.out.println(temp.addofnextNode); 
@@ -30,7 +28,7 @@ public class _11_Linked_list_Deletion_Pro {
 			int choice = s.nextInt(); 
 			if (choice == 1) { 
 				flag = true; 
-			} else {
+			} else { 
 				break; 
 			} 
 		} 
@@ -55,7 +53,7 @@ public class _11_Linked_list_Deletion_Pro {
 	//count num of nodes 
 	public static int countNumNodes() 
 	{ 
-		int count=0; 
+		int count=0;
 		if(head==null) 
 		{ 
 			System.out.println("create the node first"); 
@@ -65,7 +63,7 @@ public class _11_Linked_list_Deletion_Pro {
 			Node temp; 
 			temp=head; 
 			while(temp!=null) 
-			{
+			{ 
 				count++; 
 				temp=temp.addofnextNode; 
 			} 
@@ -73,278 +71,148 @@ public class _11_Linked_list_Deletion_Pro {
 		} 
 		return count; 
 	} 
+
 	//insertion at beg 
 	public static void insertionAtBeg() 
 	{ 
 		Node n = new Node(); 
 		System.out.println("enter the data to insert at beg"); 
 		n.data=s.nextInt(); 
-		n.addofnextNode
+		n.addofnextNode=head; 
 		head=n; 
 		System.out.println("Node inserted at beg successfully"); 
 	} 
-
 	//insertion at end 
-
 	public static void insertionAtEnd() 
-
 	{ 
-
 		Node temp; 
-
 		temp=head; 
-
 		while(temp.addofnextNode!=null) 
-
 		{ 
-
 			temp=temp.addofnextNode; 
-
 		} 
-
 		Node n = new Node(); 
-
 		System.out.println("enter the data to insert at last"); 
-
 		n.data=s.nextInt(); 
-
 		temp.addofnextNode=n; 
-
-		System.out.println("Node inserted at end successfully"); 
-
-
-
+		System.out.println("Node inserted at end successfully");
 	} 
-
 	//insertion at position 
-
 	public static void insertionAtPos() 
-
 	{ 
-
 		if(head==null) 
-
 		{ 
-
 			System.out.println("create the node first"); 
-
 		} 
-
 		else 
-
 		{ 
-
 			int pos=0; 
-
 			System.out.println("Enter position"); 
-
 			pos = s.nextInt(); 
-
 			int count = countNumNodes(); 
-
 			if(pos>=1 && pos<=count+1) 
-
 			{ 
-
 				if(pos==1) 
-
 				{ 
-
 					insertionAtBeg(); 
-
 				} 
-
 				else if(pos==count+1) 
-
 				{ 
-
 					insertionAtEnd(); 
-
 				} 
-
 				else 
-
 				{ 
-
 					int i=1; 
-
 					Node n = new Node(); 
-
 					System.out.println("Enter the daat to be inserted at pos"); 
-
 					n.data=s.nextInt(); 
-
 					Node temp; 
-
 					temp=head; 
-
 					while(i<pos-1) 
-
 					{ 
-
 						temp=temp.addofnextNode; 
-
 						i++; 
-
 					} 
-
 					n.addofnextNode=temp.addofnextNode; 
-
 					temp.addofnextNode=n; 
-
 					System.out.println("data inserted at pos successfully"); 
-
-
-
 				} 
-
 			} 
-
 			else 
-
 			{ 
-
 				System.out.println("invalid position"); 
-
 			} 
-
 		} 
-
 	} 
-
-
-
 	public static void deletionAtBeg() 
-
 	{ 
-
 		Node temp; 
-
 		temp=head; 
-
 		head=head.addofnextNode; 
 
 		temp.addofnextNode=null; 
 
 		System.out.println("node deleted at beg successfully"); 
-
 	} 
-
 	public static void deletionAtEnd() 
-
 	{ 
-
 		Node temp,prevnode=null; 
-
 		temp=head; 
-
 		while(temp.addofnextNode!=null) 
-
 		{ 
-
 			prevnode=temp; 
-
-			temp=temp.addofnextNode;
+			temp=temp.addofnextNode; 
 		} 
-
 		prevnode.addofnextNode=null; 
-
 		System.out.println("node deleted at end successfully"); 
-
 	} 
-
-
-
 	public static void deletionAtPos() 
-
 	{ 
-
 		if(head==null) 
-
 		{ 
-
 			System.out.println("create the node first"); 
-
 		} 
-
 		else 
-
 		{ 
-
 			System.out.println("enter position to delete the data"); 
-
 			int pos=s.nextInt(); 
-
 			System.out.println("````````````````````````````````````"); 
-
 			int count=countNumNodes(); 
-
 			if(pos>0 && pos<=count) 
-
 			{ 
-
 				if(pos==1) 
-
 				{ 
-
 					deletionAtBeg(); 
-
 				} 
-
 				else if(pos==count) 
-
 				{ 
-
 					deletionAtEnd(); 
-
 				} 
-
 				else 
-
 				{ 
-
 					Node temp,prevnode=null; 
-
 					temp=head; 
-
 					int i=1; 
-
 					while(i<pos) 
-
 					{ 
-
 						prevnode=temp; 
-
 						temp=temp.addofnextNode; 
-
 						i++; 
-
 					} 
-
 					prevnode.addofnextNode=temp.addofnextNode; 
-
-					temp.adnextnode=null; 
-
+					temp.addofnextNode=null; 
 					System.out.println("node deleted at position successfully"); 
-
 				} 
-
 			} 
-
 			else 
-
 			{ 
-
 				System.out.println("invalid position"); 
-
 			} 
-
 		} 
-
 	}
 	public static void main(String[] args) { 
 		boolean flag=true; 
-		while(true)
+		while(true) 
 		{ 
 			System.out.println("```````````````````````````````````````````"); 
 			System.out.println("1.creation and insertion\n2.display\n3.countNumNodes\n4.insertionAtPos\n5.DeletionAtPos\n6.exit"); 
@@ -356,9 +224,9 @@ public class _11_Linked_list_Deletion_Pro {
 			case 1: 
 				creationAndInsertion(); 
 				break; 
-			case 2:
+			case 2: 
 				display(); 
-				break;
+				break; 
 			case 3:countNumNodes(); 
 			break; 
 			case 4:insertionAtPos(); 
@@ -370,5 +238,4 @@ public class _11_Linked_list_Deletion_Pro {
 			} 
 		} 
 	} 
-} 
-S
+}

@@ -45,9 +45,24 @@ public class _12_Linear_Search {
 		}
 		System.out.println("'''''''''''''''''''''''");
 		System.out.println("enter the element to search");
-		int ele=s.nextInt();
-		boolean ele_found=false;
-		
+		int ele=s.nextInt(); 
+		temp=head; 
+		boolean ele_found=false; 
+		while(temp!=null) 
+		{ 
+			if(temp.data==ele) 
+			{ 
+				ele_found=true; 
+				break; 
+			} 
+			temp=temp.addofnextNode; 
+		} 
+		if(ele_found==true) 
+		{
+			System.out.println("element found"); 
+		} 
+		else 
+			System.out.println("element not found");
 	}
 }
 

@@ -59,6 +59,10 @@ public class _10_Deletion_at_Position {
 			prvNode.addofnextNode=temp.addofnextNode;
 			temp.addofnextNode=null;
 		}
+		else
+		{
+			System.out.println("invalid position");
+		}
 		System.out.println("'''''''''''''''''''''''''''''''''''''''''");
 		System.out.println("after deletion elements present in the list are:");
 		temp=head;
