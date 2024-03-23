@@ -6,7 +6,7 @@ public class _02_Creatin_Insertion_Display_in_queue {
 
 	static int front=-1,rear=-1;
 	public static void main(String[] args) {
-
+		
 		Scanner s=new Scanner(System.in);
 		System.out.println("enter the size");
 		int size=s.nextInt();

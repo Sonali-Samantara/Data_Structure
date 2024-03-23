@@ -7,17 +7,29 @@ public class _02_Binary_Search_Tree {
 	static Node root;
 	static Scanner s=new Scanner(System.in);
 	
-	public static Node create()
+	public static Node create(int data)
 	{
 		Node n=null;
+		n=new Node();
+		n.data=data;
+		return n;
+	}
+	
+	public static Node insert(Node root,int data)
+	{
 		if(root==null)
 		{
-		    n=new Node();
-			System.out.println("enter the data");
-			n.data=s.nextInt();
-			
+			return create(data);
 		}
-		return n;
+		else if(data>root.data)
+		{
+			root.right=insert(root.right,data);
+		}
+		else
+		{
+			root.left=insert(root.left,data);
+		}
+		return root;
 	}
 	public static void main(String[] args) {
 		
@@ -26,8 +38,6 @@ public class _02_Binary_Search_Tree {
 		insert(root,34);
 		insert(root,19);
 		insert(root,3);
-		
-		inorder(root);
 		
 	}
 

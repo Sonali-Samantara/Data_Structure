@@ -1,76 +1,203 @@
 package linked_list;
+//
+//import java.util.Scanner;
+//
+//public class _10_Deletion_at_Position {
+//
+//	static Node head,temp,prvNode;
+//	public static void main(String[] args) {
+//		Scanner s=new Scanner(System.in);
+//		boolean flag=true;
+//		while(flag)
+//		{
+//			Node n=new Node();
+//			System.out.println("enter  data");
+//			n.data=s.nextInt();
+//			if(head==null)
+//			{
+//				temp=head=n;
+//			}
+//			else
+//			{
+//				temp.addofnextNode=n;
+//				n.addofprvNode=temp;
+//				temp=n;
+//			}
+//			System.out.println("do you want to create another node\n1.yes\n2.no");
+//			int choice=s.nextInt();
+//			if(choice==1)
+//			{
+//				flag=true;
+//			}
+//			else
+//			{
+//				flag=false; //or break;
+//			}
+//		}
+//		System.out.println("elements present in the list are:");
+//		temp=head;
+//		int count = 0;
+//		while(temp!=null)
+//		{
+//
+//			System.out.println(temp.data);
+//			count++;
+//			temp=temp.addofnextNode;
+//		}
+//		System.out.println("'''''''''''''''''''''''''");
+//		System.out.println("enter the position to delete the node");
+//		int pos=s.nextInt();
+//		if(pos>0 && pos<=count)
+//		{
+//			Node temp = null, prevnode = null, nextnode = null; 
+//			temp=head;
+//			int i=1;
+//			while(i<pos)
+//			{
+//				prvNode=temp;
+//				temp=temp.addofnextNode;
+//				nextnode=temp.addofnextNode;
+//				i++;
+//			}
+//			prvNode.addofnextNode=nextnode;
+//			nextnode.addofnextNode=prvNode;
+//			temp.addofnextNode=null;
+//			temp.addofprvNode=null;
+//		}
+//		
+//		System.out.println("'''''''''''''''''''''''''''''''''''''''''");
+//		System.out.println("after deletion elements present in the list are:");
+//		temp=head;
+//		while(temp!=null)
+//		{
+//
+//			System.out.println(temp.data);
+//			temp=temp.addofnextNode;
+//		}
+//		
+//	}
+//}
 
-import java.util.Scanner;
+import java.util.Scanner; 
 
-public class _10_Deletion_at_Position {
+public class _10_Deletion_at_Position { 
 
-	static Node head,temp,prvNode;
-	public static void main(String[] args) {
-		Scanner s=new Scanner(System.in);
-		boolean flag=true;
-		while(flag)
-		{
-			Node n=new Node();
-			System.out.println("enter  data");
-			n.data=s.nextInt();
-			if(head==null)
-			{
-				temp=head=n;
-			}
-			else
-			{
-				temp.addofnextNode=n;
-				temp=n;
-			}
-			System.out.println("do you want to create another node\n1.yes\n2.no");
-			int choice=s.nextInt();
-			if(choice==1)
-			{
-				flag=true;
-			}
-			else
-			{
-				flag=false; //or break;
-			}
-		}
-		System.out.println("elements present in the list are:");
-		temp=head;
-		int count = 0;
-		while(temp!=null)
-		{
+	static Node head, temp; 
 
-			System.out.println(temp.data);
-			count++;
-			temp=temp.addofnextNode;
-		}
-		System.out.println("'''''''''''''''''''''''''");
-		System.out.println("enter the position to delete the node");
-		int pos=s.nextInt();
-		if(pos>1 && pos<=count)
-		{
-			temp=head;
-			int i=1;
-			while(i<pos)
-			{
-				prvNode=temp;
-				temp=temp.addofnextNode;	
-				i++;
-			}
-			prvNode.addofnextNode=temp.addofnextNode;
-			temp.addofnextNode=null;
-		}
-		else
-		{
-			System.out.println("invalid position");
-		}
-		System.out.println("'''''''''''''''''''''''''''''''''''''''''");
-		System.out.println("after deletion elements present in the list are:");
-		temp=head;
-		while(temp!=null)
-		{
+	public static void main(String[] args) { 
 
-			System.out.println(temp.data);
-			temp=temp.addofnextNode;
-		}
-	}
-}
+		Scanner s = new Scanner(System.in); 
+
+		boolean flag = true; 
+
+		while (flag) { 
+
+			Node n = new Node(); 
+
+			System.out.println("enter the data"); 
+
+			n.data = s.nextInt(); 
+
+			if (head == null) { 
+
+				temp = head = n; 
+
+			} else { 
+
+				temp.adnextnode = n; 
+
+				n.adprevnode = temp; 
+
+				temp = n; 
+
+			} 
+
+			System.out.println("Do you want to create another node:\n1.yes\n2.no"); 
+
+			int choice = s.nextInt(); 
+
+			if (choice == 1) { 
+
+				flag = true; 
+
+			} else { 
+
+				break; 
+
+			} 
+
+		} 
+
+		System.out.println("elements present in the list are:"); 
+
+		temp = head; 
+
+		int count = 0; 
+
+		while (temp != null) { 
+
+			System.out.println(temp.data); 
+
+			count++; 
+
+			temp = temp.adnextnode; 
+
+		} 
+
+		System.out.println("```````````````````````````````````````````"); 
+
+		System.out.println("enter the position to delete the data"); 
+
+		int pos = s.nextInt(); 
+
+		if (pos > 0 && pos <= count) { 
+
+			Node temp = null, prevnode = null, nextnode = null; 
+
+			temp = head; 
+
+			int i = 1; 
+
+			while (i < pos) { 
+
+				prevnode = temp; 
+
+				temp = temp.adnextnode; 
+
+				nextnode = temp.adnextnode; 
+
+				i++; 
+
+			} 
+
+			prevnode.adnextnode = nextnode; 
+
+			nextnode.adprevnode = prevnode; 
+
+			temp.adnextnode = null; 
+
+			temp.adprevnode = null; 
+
+			temp = head; 
+
+			System.out.println("after deletion elements present in the node are:"); 
+
+			System.out.println("```````````````````````````````````````````"); 
+
+			while (temp != null) { 
+
+				System.out.println(temp.data); 
+
+				temp = temp.adnextnode; 
+
+			} 
+
+		} else { 
+
+			System.out.println("invalid position"); 
+
+		} 
+
+	} 
+
+} 
